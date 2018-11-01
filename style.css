@@ -1,0 +1,16 @@
+.height{
+    height: 40em;
+}
+.picture{
+   opacity: 0;
+}
+.show{
+    opacity: 1;
+
+}
+.pictureTwo{
+    opacity: 0;
+}
+.showTwo{
+    opacity: 1;
+}

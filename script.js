@@ -1,17 +1,15 @@
 var container;
 function init(){
     loopSingleDiv()
-    slideShow()
+   // slideShow()
 }
 function loopSingleDiv(){
     container = document.createElement("div")
-    container.classList.add("container-fluid", "bg-light", "height", "row", "text-danger")
+    container.classList.add("bg-light", "height", "row", "text-danger", "flex")
     for (var i = 1; i <= 24; i++){
-
         createDiv(i)
     }
     document.body.appendChild(container)
-
 }
 
 
@@ -47,42 +45,11 @@ function onclickDiv(column, i){
 }
 
 
-function showPictures(index){
+function showPictures(i){
     var picture = document.querySelectorAll("img");
-    picture[index-1].classList.remove("show")
-    picture[index-1].classList.add("show")
+    picture[i-1].classList.remove("show")
+    picture[i+1].classList.add("show")
+    console.log(picture)
 
 }
 
-
-function slideShow(){
-    //create div for picture
-    var divSlideShow = document.createElement("div");
-    divSlideShow.classList.add("slideShowDiv")
-
-    //get pictures add class
-   
-    var pictures = document.querySelectorAll("img.slide");
-    var index = 0;
-    // we append all pictures to div and then body
-    for(var i = 0; i<pictures.length; i++){
-        var allPictures = pictures[i];
-        divSlideShow.appendChild(allPictures);
-        
-    }
-    
-    setInterval(function(){
-        // we remove the first picture
-        pictures[index].classList.remove("display")
-        index ++
-        if(index >= 3){
-            index =  0;
-
-        }   
-        pictures[index].classList.add("display")
-
-    }, 3000)
-
-    document.body.appendChild(divSlideShow)
-
-}
